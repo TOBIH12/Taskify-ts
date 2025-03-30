@@ -30,7 +30,7 @@ const App: React.FC = () => {
  const [isDone, setIsDone] = useState<boolean>(false)
  const [doneTodo, setDoneTodo] = useState<Todo[]>([])
 
- const baseUrl = 'http://localhost:5002'
+ const baseUrl = 'https://taskify-ts-r2yk.onrender.com'
 
 // GET TODOS FROM DATABASE
 const getTodos = async () => {
