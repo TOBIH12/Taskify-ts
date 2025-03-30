@@ -33,7 +33,7 @@ const App: React.FC = () => {
  const baseUrl = 'http://localhost:5002'
 
 // GET TODOS FROM DATABASE
-const getTodos = () => {
+const getTodos = async () => {
 
   axios
   .get(baseUrl)
@@ -72,7 +72,6 @@ const editTodo = (): void => {
     setText('')
     getTodos();
 
-    
   })
 }
 
@@ -108,6 +107,12 @@ const handleDelete = (_id: number): void =>{
     console.log('Todo deleted')
     getTodos();
   })
+
+  // const handleDoneDelete = (): void =>{
+  //   handleDelete(_id)
+  // }
+
+
 }
   return (
     <div className='App'>
@@ -129,7 +134,7 @@ const handleDelete = (_id: number): void =>{
 
     {/* TODO LIST CONTAINER */}
     <div className="todos-container">
-
+ 
       <div className="uncheckedTodos">
 
   {
@@ -146,18 +151,15 @@ const handleDelete = (_id: number): void =>{
    isDone ?
     doneTodo.map((todo) => <DoneTodo key={todo._id} text={todo.text} handleDelete={()=> handleDelete(todo._id)}/>)
     : []
-
-    
     
   }
 
   </div>
 
    </div>
-
-
+   
     </div>
   )
 }
 
-export default App
+export default App;
